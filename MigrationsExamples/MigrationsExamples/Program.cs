@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MigrationsExamples.Context;
+using Microsoft.AspNetCore.Identity;
+using MigrationsExamples.Areas.Identity.Data;
 
 namespace MigrationsExamples
 {
@@ -11,8 +13,11 @@ namespace MigrationsExamples
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<ApplicationContext>(options =>
+            builder.Services.AddDbContext<MigrationsExamplesIdentityDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<MigrationsExamplesIdentityDbContext>();
+
 
             var app = builder.Build();
 
