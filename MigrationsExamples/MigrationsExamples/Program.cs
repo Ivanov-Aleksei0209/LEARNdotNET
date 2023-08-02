@@ -15,6 +15,8 @@ namespace MigrationsExamples
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<MigrationsExamplesIdentityDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDbContext<ApplicationContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<MigrationsExamplesIdentityDbContext>();
 

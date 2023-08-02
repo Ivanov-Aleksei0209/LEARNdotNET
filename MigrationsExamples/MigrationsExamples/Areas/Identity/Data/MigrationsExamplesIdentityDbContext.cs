@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MigrationsExamples.Models;
 
 namespace MigrationsExamples.Areas.Identity.Data;
 
-public class MigrationsExamplesIdentityDbContext : IdentityDbContext<IdentityUser>
+public class MigrationsExamplesIdentityDbContext : IdentityDbContext<User>
 {
     public MigrationsExamplesIdentityDbContext(DbContextOptions<MigrationsExamplesIdentityDbContext> options)
         : base(options)
     {
     }
-
+    public DbSet<User> User { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

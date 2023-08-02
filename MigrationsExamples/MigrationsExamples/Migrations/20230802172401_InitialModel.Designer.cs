@@ -11,8 +11,8 @@ using MigrationsExamples.Context;
 namespace MigrationsExamples.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230719114403_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20230802172401_InitialModel")]
+    partial class InitialModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
